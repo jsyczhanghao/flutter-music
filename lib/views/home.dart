@@ -58,7 +58,7 @@ class _HomeViewState extends State<HomeView>
 
             return [
               SongActions.creator(
-                  collected ? SongActions.UNCOLLECT : SongActions.COLLECT,
+                  collected ? SongActions.uncollect : SongActions.collect,
                   collected
                       ? () async {
                           await UserApi().uncollect(song);
@@ -74,7 +74,7 @@ class _HomeViewState extends State<HomeView>
                               duration: 1,
                               type: ToastShowType.success);
                         }),
-              SongActions.creator(SongActions.ADD2PLAYLIST, () async {
+              SongActions.creator(SongActions.add2playlist, () async {
                 PlayApi api = PlayApi();
                 await api.add(song);
                 Toast.show(context,

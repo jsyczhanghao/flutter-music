@@ -38,7 +38,10 @@ class _PlayerViewState extends PlayerObserver<PlayerView> {
 
   play(SongModel model) async {
     await PlayApi().play(model);
-    model != null ? PlayController.start() : false;
+
+    if (model != null) {
+      PlayController.start();
+    }
   }
 
   @override

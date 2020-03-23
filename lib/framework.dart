@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import './libs/libs.dart';
 import './views/home.dart';
 import './views/user.dart';
 import './routes/routes.dart';
@@ -10,7 +9,7 @@ class AppFramework extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: '张大王的乐库',
+      title: '大饼音乐',
       home: AppFrameworkView(),
       routes: initializeRoutes(),
     );

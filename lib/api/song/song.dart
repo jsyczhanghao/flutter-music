@@ -44,7 +44,7 @@ abstract class SongApi {
   Future<SongSourceModel> cache() async {
     SongSourceModel model = await getOnlineInfo();
     bool collected = await isCollected();
-
+    print(model.file);
     if (model.file == null) {
       return null;
     }
@@ -65,7 +65,6 @@ abstract class SongApi {
         }
       }),
       Future<dynamic>(() async {
-    //    return model.img ?? '';
         try {
           String imgFilename = '$prefix${_extRegExp.stringMatch(model.img)}';
           File img = await Fs.file(imgFilename, try2create: true);

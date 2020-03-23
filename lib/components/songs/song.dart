@@ -12,7 +12,6 @@ class Song extends StatelessWidget {
       : super(key: key);
 
   onClickName() {
-    SongApi api = SongApiFactory.create(song.id, song.type);
     onClickSong(song);
   }
 

@@ -61,6 +61,8 @@ class HistoryApi {
       await play(res[0]['autoid']);
       return SongModel.fromJson(res[0]);
     }
+
+    return null;
   }
 
   Future<SongModel> back() async {
@@ -86,6 +88,8 @@ class HistoryApi {
       await play(res[0]['autoid']);
       return SongModel.fromJson(res[0]);
     }
+
+    return null;
   }
 
   Future play(int autoid) async {

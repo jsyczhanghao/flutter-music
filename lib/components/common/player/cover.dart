@@ -23,7 +23,7 @@ class _PlayerCoverState extends State<PlayerCover>
       vsync: this,
       animationBehavior: AnimationBehavior.normal,
     );
-    //controller.repeat();
+    controller.repeat();
   }
 
   @override

@@ -101,6 +101,7 @@ class QQSongApi extends SongApi {
 
   Future<String> getOnlineLrc() async {
     try {
+      return '';
       return Helper.fetch
           .post(
         _INFO_URL,
