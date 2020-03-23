@@ -27,9 +27,9 @@ class IfPlayState extends State<IfPlay> with TickerProviderStateMixin {
     super.initState();
     controller =
         AnimationController(vsync: this, duration: Duration(seconds: 5));
-    controller.repeat();
     refreshPlaying();
     listening();
+    Future(() => controller.repeat());
   }
 
   listening() {
@@ -65,9 +65,9 @@ class IfPlayState extends State<IfPlay> with TickerProviderStateMixin {
   @override
   void dispose() {
     controller.dispose();
-    super.dispose();
     listener.cancel();
     listener = null;
+    super.dispose();
   }
 
   @override

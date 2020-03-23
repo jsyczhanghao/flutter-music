@@ -47,8 +47,8 @@ class _PlayListState extends State<PlayerList> {
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 
   Widget renderItem(SongModel song) {

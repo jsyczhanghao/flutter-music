@@ -117,8 +117,8 @@ class _PlayerViewState extends PlayerObserver<PlayerView> {
 
   @override 
   void dispose() {
-    super.dispose();
     cancelTimer();
+    super.dispose();
   }
 
   @override

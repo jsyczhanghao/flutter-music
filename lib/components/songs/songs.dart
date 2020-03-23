@@ -67,7 +67,7 @@ class _SongsState extends State<Songs> {
         completed = true;
         rows = widget.songs;
       });
-    } else {
+    } else if (widget.param != '') {
       controller.animateTo(0.0,
           duration: Duration(microseconds: 10), curve: Curves.bounceIn);
       page = 0;
@@ -89,53 +89,27 @@ class _SongsState extends State<Songs> {
     }
 
     if (widget.api != null) {
-      List<SongModel> songs = List<SongModel>();
-      dynamic res = await widget.api(widget.param, page + 1);
+      List<SongModel> songs = await widget.api(widget.param, page + 1) ?? [];
+      rows.addAll(songs);
 
-      if (res.runtimeType == List) {
-        rows.addAll(songs = List.from(res));
-        loadDone(songs);
-      } else if (res == null) {
-        loadDone([]);
-      } else {
-        listener = Stream.castFrom(res).listen((list) {
-          rows.addAll(list);
-          songs.addAll(list);
-          setState(() {
-            
-          });
-        }, onDone: () => loadDone(songs));
-      }
+      setState(() {
+        ++page;
+        loading = false;
+        
+        if (songs.length == 0) {
+          completed = true;
+        }
+      });
     } else if (widget.songs != null){
       rows = widget.songs;
       loading = false;
     }
   }
 
-  loadDone(List<SongModel> songs) {
-    stopListen();
-    setState(() {
-      ++page;
-      loading = false;
-      
-      if (songs.length == 0) {
-        completed = true;
-      }
-    });
-  }
-
-  stopListen() {
-    if (listener != null) {
-      listener.cancel();
-      listener = null;
-    }
-  }
-
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
-    stopListen();
+    super.dispose();
   }
 
   Widget renderLoading([Widget other]) {

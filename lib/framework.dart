@@ -50,8 +50,8 @@ class AppFrameworkViewState extends State<AppFrameworkView>
 
   @override
   void dispose() async {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 
   @override
