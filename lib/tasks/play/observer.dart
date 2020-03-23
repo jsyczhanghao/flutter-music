@@ -16,9 +16,9 @@ abstract class PlayerObserver<T extends StatefulWidget> extends State<T>
 
   @override
   dispose() async {
-    super.dispose();
     disconnect();
     WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
   }
 
   connect() async {

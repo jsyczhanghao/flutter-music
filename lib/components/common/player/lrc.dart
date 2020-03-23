@@ -91,8 +91,8 @@ class _PlayerLrcState extends State<PlayerLrc> {
   }
 
   dispose() {
-    super.dispose();
     keys = null;
+    super.dispose();
   }
 
   Widget createLrcContainer() {

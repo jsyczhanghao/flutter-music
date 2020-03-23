@@ -23,9 +23,7 @@ class _UserViewState extends State<UserView>
 
   loadSongs() async {
     songs = await UserApi().collects();
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
   @override
@@ -40,16 +38,14 @@ class _UserViewState extends State<UserView>
         songs: songs,
         actionsBuilder: (SongModel song, int index) async {
           return [
-            SongActions.creator(SongActions.UNCOLLECT, () async {
+            SongActions.creator(SongActions.uncollect, () async {
               await UserApi().uncollect(song);
-              Toast.show(context, title: '已取消收藏', duration: 1, type: ToastShowType.success);
+              Toast.show(context,
+                  title: '已取消收藏', duration: 1, type: ToastShowType.success);
               setState(() {
                 songs.removeAt(index);
               });
             }),
-            SongActions.creator(SongActions.ADD2PLAYLIST, () {
-              Toast.show(context, title: '已添加', duration: 1, type: ToastShowType.success);
-            }),            
           ];
         },
       ),

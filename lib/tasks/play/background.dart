@@ -112,6 +112,7 @@ class _BackgroundMusicTask extends BackgroundAudioTask {
     SongSourceModel _source = await api.source();
 
     if (_source == null) {
+      lock = false;
       onSkipToNext();
       return;
     } else if (_source.id != song.id && _source.type != song.type) {

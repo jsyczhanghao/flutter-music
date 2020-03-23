@@ -23,13 +23,13 @@ class _PlayerCoverState extends State<PlayerCover>
       vsync: this,
       animationBehavior: AnimationBehavior.normal,
     );
-    //controller.repeat();
+    Future(() => controller.repeat());
   }
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 
   @override

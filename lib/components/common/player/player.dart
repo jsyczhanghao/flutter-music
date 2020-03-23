@@ -43,9 +43,9 @@ class PlayerState extends State<Player> with SingleTickerProviderStateMixin {
 
   @override
   void dispose() {
-    super.dispose();
     controller.dispose();
     controller = null;
+    super.dispose();
   }
 
   @override

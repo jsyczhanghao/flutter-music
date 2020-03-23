@@ -1,4 +1,3 @@
-import 'dart:convert';
 import '../../configs/configs.dart';
 import '../../libs/libs.dart';
 import '../../models/models.dart';
@@ -34,6 +33,8 @@ class TTSongApi extends SongApi {
         };
       }
     } catch (e) {}
+    
+    return Map();
   }
 
   Future<String> getOnlineLrc() async {
